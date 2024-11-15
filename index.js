@@ -47,7 +47,9 @@ if (gissning !== null && gissning.toLowerCase() === korrektDjur) {
 }
 
 // #5 Känn igen en färg
-let favoritFarg = prompt("What's your favourite color? (röd, blå eller grön)?");
+let favoritFarg = prompt(
+  "Vilken av dessa färger är din favoritfärg (röd, blå eller grön)?"
+);
 
 if (favoritFarg !== null) {
   favoritFarg = favoritFarg.toLowerCase();
@@ -66,3 +68,45 @@ if (favoritFarg !== null) {
 }
 
 // #6 Godkänd eller inte
+let provresultat = prompt("Vad fick du för provresultat?");
+
+if (provresultat !== null && !isNaN(provresultat)) {
+  provresultat = parseInt(provresultat);
+
+  if (provresultat >= 50) {
+    alert("Grattis, du är godkänd!");
+  } else {
+    alert("Tyvärr, du är inte godkänd.");
+  }
+} else {
+  alert("Var god skriv in ett tal mellan 50 och 100.");
+}
+
+// #7 Vad ska vi göra idag?
+let väder = prompt("Hur är vädret idag? (soligt, regnigt eller molnigt?");
+
+if (väder !== null) {
+  väder = väder.toLowerCase();
+
+  if (väder === "soligt") {
+    alert(
+      "Det är soligt! Perfekt för en promenad eller en fika utomhus! Glöm inte SPF!"
+    );
+  } else if (väder === "regnigt") {
+    alert(
+      "Det är regnigt. Perfekt för att spela tv-spel eller titta film inomhus!"
+    );
+  } else if (väder === "molnigt") {
+    alert(
+      "Det är molnigt. Du kan ta en promenad eller göra någon aktivitet inom, eller utomhus!"
+    );
+  } else {
+    alert(
+      "Det verkar som du skrev något annat än soligt, regnigt eller molnigt. Prova igen!"
+    );
+  }
+} else {
+  alert("Du avbröt eller skrev inget. Försök igen!");
+}
+
+// #8 Vilket språk talar du?
