@@ -3,9 +3,9 @@ let namn = prompt("Vad heter du?");
 console.log(namn);
 
 if (namn) {
-  alert("Välkommen, " + namn + "!");
+  alert("Var hälsad, " + namn + "!");
 } else {
-  alert("Välkommen!");
+  alert("Var hälsad!");
 }
 
 // #2 Jämför två ord
@@ -110,3 +110,125 @@ if (väder !== null) {
 }
 
 // #8 Vilket språk talar du?
+let language = prompt(
+  "Vilket språk talar du? (Skriv svenska, engelska, eller ett annat språk)"
+);
+
+if (language.toLowerCase() === "svenska") {
+  alert("Hej! Hur mår du? Du förstår säkert denna meningen!");
+} else if (language.toLowerCase() === "engelska") {
+  alert("Hello! How are you? You probably understand this sentence!");
+} else {
+  alert("Hello! I don't understand your language, but nice to meet you!");
+}
+
+// #9 Multipel av 5?
+let number = parseInt(prompt("Skriv ett tal:"));
+
+if (number % 5 === 0) {
+  alert("Talet " + " är en multibel av 5.");
+} else {
+  alert("Talet " + number + " är inte en multibel av 5.");
+}
+
+// #10 Ska vi gå ut?
+let wantToGoOut = confirm("Vill du gå ut?");
+if (wantToGoOut) {
+  alert("Härligt! Längtar!");
+} else {
+  alert("Okej, synd. En annan gång!");
+}
+
+// #11 Siffra eller bokstav
+let tecken = prompt("Skriv ett tecken:");
+
+if (tecken.length === 1) {
+  if (tecken >= "0" && tecken <= "9") {
+    alert(tecken + " är en siffra.");
+  } else if (tecken.toLowerCase() >= "a" && tecken.toLowerCase() <= "z") {
+    alert(tecken + " är en bokstav.");
+  } else {
+    alert(tecken + " är varken en bokstav eller ett en siffra.");
+  }
+} else {
+  alert("Vänligen skriv bara ett tecken.");
+}
+
+// #12 Största av 3 ord
+let word1 = prompt("Skriv ett ord (bara ett):");
+let word2 = prompt("Skriv ett andra ord (bara ett):");
+let word3 = prompt("Skriv ett tredje ord (bara ett):");
+
+let longestWord = word1;
+
+if (word2.length > longestWord.length) {
+  longestWord = word2;
+}
+
+if (word3.length > longestWord.length) {
+  longestWord = word3;
+}
+
+alert("Det längsta ordet är: " + longestWord);
+
+// #13 Lösenordskontroll
+let password = prompt(
+  "Låt oss se om ditt lösenord är tillräckligt långt. Skriv ditt lösenord:"
+);
+
+function containsNumber(password) {
+  return /\d/.test(password); // Kollar om det finns minst en siffra med: /\d/
+}
+
+if (!password) {
+  alert("Du angav inget lösenord. Försök igen.");
+} else {
+  if (password.length >= 8 && containsNumber(password)) {
+    alert("Lösenordet är tillräckligt säkert!");
+  } else {
+    if (password.length < 8) {
+      alert("Lösenordet är för kort. Det måste innehålla minst 8 tecken.");
+    }
+    if (!containsNumber(password)) {
+      alert("Lösenordet måste innehålla minst en siffra.");
+    }
+  }
+}
+
+// #14 Ålderskategori
+let ageInput = prompt("Hur gammal är du?");
+
+if (!ageInput) {
+  alert("Du angav ingen ålder. Försök igen.");
+} else {
+  let age2 = parseInt(ageInput, 10);
+
+  if (isNaN(age2) || age2 < 0) {
+    alert("Vänligen ange en giltig ålder med ett positivt tal.");
+  } else {
+    if (age2 <= 12) {
+      alert("Du är ett barn.");
+    } else if (age2 <= 19) {
+      alert("Du är en tonåring.");
+    } else if (age2 <= 64) {
+      alert("Du är en vuxen.");
+    } else {
+      alert("Du är en pensionär.");
+    }
+  }
+}
+
+// #15 Beslutstagande
+let firstChoice = confirm("Vill du gå på bio?");
+if (firstChoice) {
+  alert("Nice! Det ska bli kul!");
+} else {
+  alert("Okej, kanske en annan gång.");
+}
+
+let secondChoice = confirm("Vill du gå ut och äta något?");
+if (secondChoice) {
+  alert("Perfekt! Nu ska vi bara hitta ett ställe.");
+} else {
+  alert("Inga problem, vi kan laga mat hemma.");
+}
